@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_fil.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/04 22:48:36 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/04 22:49:54 by bpole            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
-static int 		get_coord_plat(t_fil *fil)
+static int		get_coord_plat(t_fil *fil)
 {
-	int 	i;
+	int			i;
 
 	i = 0;
 	while (fil->line[i] && !ft_isdigit(fil->line[i]))
@@ -20,9 +32,9 @@ static int 		get_coord_plat(t_fil *fil)
 	return (0);
 }
 
-static int 		creat_plateau(t_fil *fil, int i)
+static int		creat_plateau(t_fil *fil, int i)
 {
-	char	**arr;
+	char		**arr;
 
 	if (i == 0)
 		return (1);
@@ -38,7 +50,7 @@ static int 		creat_plateau(t_fil *fil, int i)
 
 static void		read_plateau(t_fil *fil)
 {
-	int 	i;
+	int			i;
 
 	get_next_line(0, &fil->line);
 	if (!fil->line || !ft_strnequ(fil->line, "Plateau", 7))
@@ -73,7 +85,7 @@ static void		read_player(t_fil *fil)
 	ft_strdel(&fil->line);
 }
 
-void	ft_read_fil(t_fil *fil)
+void			ft_read_fil(t_fil *fil)
 {
 	if (!fil->n_play)
 		read_player(fil);

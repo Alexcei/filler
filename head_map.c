@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   head_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/04 22:47:49 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/04 22:59:18 by bpole            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
 void			ft_put_players_on_heat_map(t_fil *fil)
 {
 	int			w;
-	int 		h;
+	int			h;
 
 	h = 0;
 	while (h < fil->h_plat)
@@ -11,8 +23,6 @@ void			ft_put_players_on_heat_map(t_fil *fil)
 		w = 0;
 		while (w < fil->w_plat)
 		{
-			//if (ft_is_i_fil(fil, fil->plat[h][w]))
-			//	fil->map[h][w] = -1;
 			if (ft_is_enemy_fil(fil, fil->plat[h][w]))
 				fil->map[h][w] = 1;
 			else
@@ -25,7 +35,7 @@ void			ft_put_players_on_heat_map(t_fil *fil)
 
 int				ft_creat_heat_map(t_fil *fil)
 {
-	int 		i;
+	int			i;
 
 	i = 0;
 	if (!(fil->map = (int**)ft_memalloc(sizeof(int*) * fil->h_plat)))
@@ -41,7 +51,7 @@ int				ft_creat_heat_map(t_fil *fil)
 
 static int		filling_out_head_map(t_fil *fil, int h, int w)
 {
-	int 		res;
+	int			res;
 
 	res = 0;
 	if (h > 0 && fil->map[h - 1][w] == 0 && ++res)
@@ -58,8 +68,8 @@ static int		filling_out_head_map(t_fil *fil, int h, int w)
 int				ft_fill_heat_map(t_fil *fil, int i)
 {
 	int			w;
-	int 		h;
-	int 		res;
+	int			h;
+	int			res;
 
 	h = 0;
 	res = 0;

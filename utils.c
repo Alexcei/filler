@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/04 22:52:51 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/04 22:58:22 by bpole            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
 void			print_error(void)
@@ -33,7 +45,7 @@ void			ft_free_int_arr(int ***arr, int h)
 	}
 }
 
-int		ft_is_enemy_fil(t_fil *fil, char c)
+int				ft_is_enemy_fil(t_fil *fil, char c)
 {
 	if (fil->n_play == 1)
 	{
@@ -48,7 +60,7 @@ int		ft_is_enemy_fil(t_fil *fil, char c)
 	return (0);
 }
 
-int		ft_is_i_fil(t_fil *fil, char c)
+int				ft_is_i_fil(t_fil *fil, char c)
 {
 	if (fil->n_play == 1)
 	{

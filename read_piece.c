@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_piece.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/04 22:50:00 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/04 22:50:34 by bpole            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
-static int 		get_coord_piece(t_fil *fil)
+static int	get_coord_piece(t_fil *fil)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (fil->line[i] && !ft_isdigit(fil->line[i]))
@@ -20,7 +32,7 @@ static int 		get_coord_piece(t_fil *fil)
 	return (0);
 }
 
-static int 		creat_piece(t_fil *fil, int i)
+static int	creat_piece(t_fil *fil, int i)
 {
 	if ((int)ft_strlen(fil->line) != fil->w_pie)
 		return (0);
@@ -31,7 +43,7 @@ static int 		creat_piece(t_fil *fil, int i)
 
 void		ft_read_piece_fil(t_fil *fil)
 {
-	int 	i;
+	int		i;
 
 	get_next_line(0, &fil->line);
 	if (!fil->line || !ft_strnequ(fil->line, "Piece", 5))

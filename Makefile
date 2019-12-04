@@ -15,7 +15,7 @@ NAME_F = bpole.filler
 LIB_DIR = ./ft_printf/
 LIBFT = $(LIB_DIR)libftprintf.a
 
-SRC_F = main.c read_fil.c utils.c read_piece.c\
+SRC_F = main.c read_fil.c utils.c read_piece.c \
         thinker.c head_map.c search_solution.c
 
 OBJ_F = $(SRC_F:.c=.o)
