@@ -35,18 +35,18 @@ void		ft_read_piece_fil(t_fil *fil)
 
 	get_next_line(0, &fil->line);
 	if (!fil->line || !ft_strnequ(fil->line, "Piece", 5))
-		print_error("error");
+		print_error();
 	if (!get_coord_piece(fil))
-		print_error("error");
+		print_error();
 	ft_strdel(&fil->line);
 	if (!(fil->pie = (char**)ft_memalloc(sizeof(char*) * (fil->h_pie + 1))))
-		print_error("malloc error");
+		print_error();
 	i = 0;
 	while (i < fil->h_pie)
 	{
 		get_next_line(0, &fil->line);
 		if (!fil->line || !creat_piece(fil, i))
-			print_error("error");
+			print_error();
 		ft_strdel(&fil->line);
 		i++;
 	}

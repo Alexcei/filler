@@ -22,6 +22,8 @@ static int	chick_intersec(t_fil *fil, int h_start, int w_start)
 		w = 0;
 		while (w < fil->w_pie)
 		{
+			if (fil->pie[h][w] == '*' && fil->map[h + h_start][w + w_start] == 1)
+				return (0);
 			if (fil->pie[h][w] == '*' && fil->map[h + h_start][w + w_start] == -1)
 				intersec++;
 			if (intersec > 1)
@@ -59,7 +61,7 @@ static int	search_position_pie(t_fil *fil)
 {
 	int 	score;
 
-	fil->score_tmp = INT_MAX;
+	fil->score = INT_MAX;
 	fil->h_pie_tmp = 0;
 	while (fil->h_pie_tmp < fil->h_pie)
 	{
@@ -70,9 +72,9 @@ static int	search_position_pie(t_fil *fil)
 			{
 				if (check_insert_pie_in_plat(fil, fil->h_pie_tmp, fil->w_pie_tmp) &&
 				chick_intersec(fil, fil->h_plat_tmp - fil->h_pie_tmp, fil->w_plat_tmp - fil->w_pie_tmp))
-					if ((score = count_score_head_map(fil, fil->h_plat_tmp - fil->h_pie_tmp, fil->w_plat_tmp - fil->w_pie_tmp)) < fil->score_tmp)
+					if ((score = count_score_head_map(fil, fil->h_plat_tmp - fil->h_pie_tmp, fil->w_plat_tmp - fil->w_pie_tmp)) < fil->score)
 					{
-						fil->score_tmp = score;
+						fil->score = score;
 						fil->w_fil = fil->w_pie_tmp;
 						fil->h_fil = fil->h_pie_tmp;
 					}
@@ -98,10 +100,9 @@ void		ft_search_solution_fil(t_fil *fil)
 			if (fil->map[fil->h_plat_tmp][fil->w_plat_tmp] == -1)
 			{
 				search_position_pie(fil);
-				if (score > fil->score_tmp)
+				if (score > fil->score)
 				{
-				score = fil->score_tmp;
-				//ft_printf("%d %d %d %d\n", fil->h_plat_tmp, fil->w_plat_tmp, fil->h_fil, fil->w_fil);
+				score = fil->score;
 				fil->x_out = fil->w_plat_tmp - fil->w_fil;
 				fil->y_out = fil->h_plat_tmp - fil->h_fil;
 				}
@@ -110,58 +111,4 @@ void		ft_search_solution_fil(t_fil *fil)
 		}
 		fil->h_plat_tmp++;
 	}
-	//ft_printf("<%d>\n", score);
-	//ft_printf("%d %d\n", fil->h_pie, fil->w_pie);
 }
-
-/*
- * static int	search_position_pie(t_fil *fil)
-{
-	int		w;
-	int 	h;
-	int 	score;
-
-	score = INT_MAX;
-	h = 0;
-	while (h < fil->h_pie)
-	{
-		w = 0;
-		while (w < fil->w_pie)
-		{
-			if (fil->pie[h][w] == '*')
-			{
-				if (check_insert_pie_in_plat(fil, h, w) &&
-				chick_intersec(fil, fil->h_tmp - h, fil->w_tmp - w))
-					score = count_score_head_map(fil, fil->h_tmp - h, fil->w_tmp - w);
-			}
-			w++;
-		}
-		h++;
-	}
-	return (score);
-}
-
-void		ft_search_solution_fil(t_fil *fil)
-{
-	int 	score;
-
-	fil->score = INT_MAX;
-	fil->h_tmp = 0;
-	while (fil->h_tmp < fil->h_plat)
-	{
-		fil->w_tmp = 0;
-		while (fil->w_tmp < fil->w_plat)
-		{
-			if (fil->map[fil->h_tmp][fil->w_tmp] == -1
-				&& (score = search_position_pie(fil)) < fil->score)
-			{
-				fil->score = score;
-				fil->x_out = fil->w_tmp;
-				fil->y_out = fil->h_tmp;
-			}
-			fil->w_tmp++;
-		}
-		fil->h_tmp++;
-	}
-}
- */

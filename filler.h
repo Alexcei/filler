@@ -17,8 +17,7 @@ typedef struct	s_fil
 	int 		y_out;
 	char		*line;
 	int 		**map;
-	//int 		score;
-	int 		score_tmp;
+	int 		score;
 	int 		w_plat_tmp;
 	int 		h_plat_tmp;
 	int 		w_pie_tmp;
@@ -28,37 +27,36 @@ typedef struct	s_fil
 }				t_fil;
 
 /*
- *
- */
-
+*				head_map.c
+*/
 void			ft_put_players_on_heat_map(t_fil *fil);
 int				ft_creat_heat_map(t_fil *fil);
 int				ft_fill_heat_map(t_fil *fil, int i);
 
 /*
- * 				read_fil.c
- */
+* 				read_fil.c
+*/
 void			ft_read_fil(t_fil *fil);
 
 /*
- * 				read_piece.c
- */
+* 				read_piece.c
+*/
 void			ft_read_piece_fil(t_fil *fil);
 
 /*
- * 				search_solution.c
- */
+* 				search_solution.c
+*/
 void			ft_search_solution_fil(t_fil *fil);
 
 /*
- * 				thinker.c
- */
+* 				thinker.c
+*/
 void			ft_thinker_fil(t_fil *fil);
 
 /*
- * 				utils.c
- */
-void			print_error(char *message);
+* 				utils.c
+*/
+void			print_error(void);
 void			ft_free_char_arr(char ***arr);
 void			ft_free_int_arr(int ***arr, int h);
 int				ft_is_enemy_fil(t_fil *fil, char c);

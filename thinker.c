@@ -25,7 +25,7 @@ void	ft_thinker_fil(t_fil *fil)
 
 	i = 1;
 	if (!(ft_creat_heat_map(fil)))
-		print_error("malloc error");
+		print_error();
 	ft_put_players_on_heat_map(fil);
 	while (ft_fill_heat_map(fil, i))
 		i++;

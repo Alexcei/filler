@@ -1,8 +1,7 @@
 #include "filler.h"
 
-void			print_error(char *message)
+void			print_error(void)
 {
-	ft_putendl_fd(message, 2);
 	exit(1);
 }
 

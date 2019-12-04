@@ -42,18 +42,18 @@ static void		read_plateau(t_fil *fil)
 
 	get_next_line(0, &fil->line);
 	if (!fil->line || !ft_strnequ(fil->line, "Plateau", 7))
-		print_error("error3");
+		print_error();
 	if (!get_coord_plat(fil))
-		print_error("error4");
+		print_error();
 	ft_strdel(&fil->line);
 	if (!(fil->plat = (char**)ft_memalloc(sizeof(char*) * (fil->h_plat + 1))))
-		print_error("malloc error");
+		print_error();
 	i = 0;
 	while (i < fil->h_plat + 1)
 	{
 		get_next_line(0, &fil->line);
 		if (!fil->line || !creat_plateau(fil, i))
-			print_error("error5");
+			print_error();
 		ft_strdel(&fil->line);
 		i++;
 	}
@@ -63,13 +63,13 @@ static void		read_player(t_fil *fil)
 {
 	get_next_line(0, &fil->line);
 	if (!fil->line)
-		print_error("error1");
+		print_error();
 	if (ft_strnequ(fil->line, "$$$ exec p1", 11))
 		fil->n_play = 1;
 	else if (ft_strnequ(fil->line, "$$$ exec p2", 11))
 		fil->n_play = 2;
 	else
-		print_error("error2");
+		print_error();
 	ft_strdel(&fil->line);
 }
 

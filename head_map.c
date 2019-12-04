@@ -1,9 +1,9 @@
 #include "filler.h"
 
-void		ft_put_players_on_heat_map(t_fil *fil)
+void			ft_put_players_on_heat_map(t_fil *fil)
 {
-	int		w;
-	int 	h;
+	int			w;
+	int 		h;
 
 	h = 0;
 	while (h < fil->h_plat)
@@ -23,9 +23,9 @@ void		ft_put_players_on_heat_map(t_fil *fil)
 	}
 }
 
-int			ft_creat_heat_map(t_fil *fil)
+int				ft_creat_heat_map(t_fil *fil)
 {
-	int 	i;
+	int 		i;
 
 	i = 0;
 	if (!(fil->map = (int**)ft_memalloc(sizeof(int*) * fil->h_plat)))
@@ -39,11 +39,27 @@ int			ft_creat_heat_map(t_fil *fil)
 	return (1);
 }
 
-int			ft_fill_heat_map(t_fil *fil, int i)
+static int		filling_out_head_map(t_fil *fil, int h, int w)
 {
-	int		w;
-	int 	h;
-	int 	res;
+	int 		res;
+
+	res = 0;
+	if (h > 0 && fil->map[h - 1][w] == 0 && ++res)
+		fil->map[h - 1][w] += fil->map[h][w] + 1;
+	if (h < fil->h_plat - 1 && fil->map[h + 1][w] == 0 && ++res)
+		fil->map[h + 1][w] += fil->map[h][w] + 1;
+	if (w > 0 && fil->map[h][w - 1] == 0 && ++res)
+		fil->map[h][w - 1] += fil->map[h][w] + 1;
+	if (w < fil->w_plat - 1 && fil->map[h][w + 1] == 0 && ++res)
+		fil->map[h][w + 1] += fil->map[h][w] + 1;
+	return (res);
+}
+
+int				ft_fill_heat_map(t_fil *fil, int i)
+{
+	int			w;
+	int 		h;
+	int 		res;
 
 	h = 0;
 	res = 0;
@@ -54,14 +70,7 @@ int			ft_fill_heat_map(t_fil *fil, int i)
 		{
 			if (fil->map[h][w] == i)
 			{
-				if (h > 0 && fil->map[h - 1][w] == 0 && ++res)
-					fil->map[h - 1][w] += fil->map[h][w] + 1;
-				if (h < fil->h_plat - 1 && fil->map[h + 1][w] == 0 && ++res)
-					fil->map[h + 1][w] += fil->map[h][w] + 1;
-				if (w > 0 && fil->map[h][w - 1] == 0 && ++res)
-					fil->map[h][w - 1] += fil->map[h][w] + 1;
-				if (w < fil->w_plat - 1 && fil->map[h][w + 1] == 0 && ++res)
-					fil->map[h][w + 1] += fil->map[h][w] + 1;
+				res += filling_out_head_map(fil, h, w);
 			}
 			w++;
 		}
