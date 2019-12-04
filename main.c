@@ -2,7 +2,13 @@
 
 void	out_put_fil(t_fil fil)
 {
-	ft_printf("%d %d\n", fil.y_out, fil.x_out);
+	if (fil.flag)
+	{
+		fil.flag = 0;
+		ft_printf("%d %d\n", fil.y_out, fil.x_out);
+	}
+	else
+		ft_printf("%d %d\n", 0, 0);
 }
 
 void	free_all_fil(t_fil *fil)

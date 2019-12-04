@@ -24,6 +24,7 @@ typedef struct	s_fil
 	int 		h_pie_tmp;
 	int 		h_fil;
 	int 		w_fil;
+	int 		flag;
 }				t_fil;
 
 /*

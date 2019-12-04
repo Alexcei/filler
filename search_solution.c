@@ -24,7 +24,7 @@ static int	chick_intersec(t_fil *fil, int h_start, int w_start)
 		{
 			if (fil->pie[h][w] == '*' && fil->map[h + h_start][w + w_start] == 1)
 				return (0);
-			if (fil->pie[h][w] == '*' && fil->map[h + h_start][w + w_start] == -1)
+			if (fil->pie[h][w] == '*' && ft_is_i_fil(fil, fil->plat[h + h_start][w + w_start]))
 				intersec++;
 			if (intersec > 1)
 				return (0);
@@ -57,7 +57,7 @@ static int	count_score_head_map(t_fil *fil, int h_start, int w_start)
 	return (score);
 }
 
-static int	search_position_pie(t_fil *fil)
+static void		search_position_pie(t_fil *fil)
 {
 	int 	score;
 
@@ -83,7 +83,6 @@ static int	search_position_pie(t_fil *fil)
 		}
 		fil->h_pie_tmp++;
 	}
-	return (score);
 }
 
 void		ft_search_solution_fil(t_fil *fil)
@@ -97,14 +96,15 @@ void		ft_search_solution_fil(t_fil *fil)
 		fil->w_plat_tmp = 0;
 		while (fil->w_plat_tmp < fil->w_plat)
 		{
-			if (fil->map[fil->h_plat_tmp][fil->w_plat_tmp] == -1)
+			if (ft_is_i_fil(fil, fil->plat[fil->h_plat_tmp][fil->w_plat_tmp]))
 			{
 				search_position_pie(fil);
 				if (score > fil->score)
 				{
-				score = fil->score;
-				fil->x_out = fil->w_plat_tmp - fil->w_fil;
-				fil->y_out = fil->h_plat_tmp - fil->h_fil;
+					fil->flag = 1;
+					score = fil->score;
+					fil->x_out = fil->w_plat_tmp - fil->w_fil;
+					fil->y_out = fil->h_plat_tmp - fil->h_fil;
 				}
 			}
 			fil->w_plat_tmp++;

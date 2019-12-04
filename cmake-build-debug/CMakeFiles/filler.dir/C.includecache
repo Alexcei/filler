@@ -28,31 +28,7 @@ unistd.h
 fcntl.h
 /Users/bpole/CLionProjects/filler/ft_printf/libft/fcntl.h
 
-/Users/bpole/CLionProjects/filler/head_map.c
-filler.h
-/Users/bpole/CLionProjects/filler/filler.h
-
-/Users/bpole/CLionProjects/filler/main.c
-filler.h
-/Users/bpole/CLionProjects/filler/filler.h
-
-/Users/bpole/CLionProjects/filler/read_fil.c
-filler.h
-/Users/bpole/CLionProjects/filler/filler.h
-
-/Users/bpole/CLionProjects/filler/read_piece.c
-filler.h
-/Users/bpole/CLionProjects/filler/filler.h
-
-/Users/bpole/CLionProjects/filler/search_solution.c
-filler.h
-/Users/bpole/CLionProjects/filler/filler.h
-
 /Users/bpole/CLionProjects/filler/thinker.c
-filler.h
-/Users/bpole/CLionProjects/filler/filler.h
-
-/Users/bpole/CLionProjects/filler/utils.c
 filler.h
 /Users/bpole/CLionProjects/filler/filler.h
 

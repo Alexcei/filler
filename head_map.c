@@ -11,9 +11,9 @@ void			ft_put_players_on_heat_map(t_fil *fil)
 		w = 0;
 		while (w < fil->w_plat)
 		{
-			if (ft_is_i_fil(fil, fil->plat[h][w]))
-				fil->map[h][w] = -1;
-			else if (ft_is_enemy_fil(fil, fil->plat[h][w]))
+			//if (ft_is_i_fil(fil, fil->plat[h][w]))
+			//	fil->map[h][w] = -1;
+			if (ft_is_enemy_fil(fil, fil->plat[h][w]))
 				fil->map[h][w] = 1;
 			else
 				fil->map[h][w] = 0;
