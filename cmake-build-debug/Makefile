@@ -2283,6 +2283,33 @@ read_piece.c.s:
 	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/read_piece.c.s
 .PHONY : read_piece.c.s
 
+search_solution.o: search_solution.c.o
+
+.PHONY : search_solution.o
+
+# target to build an object file
+search_solution.c.o:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/search_solution.c.o
+.PHONY : search_solution.c.o
+
+search_solution.i: search_solution.c.i
+
+.PHONY : search_solution.i
+
+# target to preprocess a source file
+search_solution.c.i:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/search_solution.c.i
+.PHONY : search_solution.c.i
+
+search_solution.s: search_solution.c.s
+
+.PHONY : search_solution.s
+
+# target to generate assembly for a file
+search_solution.c.s:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/search_solution.c.s
+.PHONY : search_solution.c.s
+
 thinker.o: thinker.c.o
 
 .PHONY : thinker.o
@@ -2586,6 +2613,9 @@ help:
 	@echo "... read_piece.o"
 	@echo "... read_piece.i"
 	@echo "... read_piece.s"
+	@echo "... search_solution.o"
+	@echo "... search_solution.i"
+	@echo "... search_solution.s"
 	@echo "... thinker.o"
 	@echo "... thinker.i"
 	@echo "... thinker.s"

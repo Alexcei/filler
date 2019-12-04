@@ -329,6 +329,9 @@
 		<Unit filename="/Users/bpole/CLionProjects/filler/read_piece.c">
 			<Option target="filler"/>
 		</Unit>
+		<Unit filename="/Users/bpole/CLionProjects/filler/search_solution.c">
+			<Option target="filler"/>
+		</Unit>
 		<Unit filename="/Users/bpole/CLionProjects/filler/thinker.c">
 			<Option target="filler"/>
 		</Unit>

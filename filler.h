@@ -2,21 +2,29 @@
 # define FILLER_H
 
 # include "ft_printf/ft_printf.h"
+# include <limits.h>
 
 typedef struct	s_fil
 {
 	char 		**plat;
-	int 		width;
-	int 		heigth;
+	int 		w_plat;
+	int 		h_plat;
 	char 		**pie;
-	int 		w;
-	int 		h;
+	int 		w_pie;
+	int 		h_pie;
 	int			n_play;
 	int 		x_out;
 	int 		y_out;
 	char		*line;
 	int 		**map;
-	int 		score;
+	//int 		score;
+	int 		score_tmp;
+	int 		w_plat_tmp;
+	int 		h_plat_tmp;
+	int 		w_pie_tmp;
+	int 		h_pie_tmp;
+	int 		h_fil;
+	int 		w_fil;
 }				t_fil;
 
 /*
@@ -36,6 +44,11 @@ void			ft_read_fil(t_fil *fil);
  * 				read_piece.c
  */
 void			ft_read_piece_fil(t_fil *fil);
+
+/*
+ * 				search_solution.c
+ */
+void			ft_search_solution_fil(t_fil *fil);
 
 /*
  * 				thinker.c

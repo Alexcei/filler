@@ -6,10 +6,10 @@ void	print_heat_map(t_fil *fil)
 	int 	h;
 
 	h = 0;
-	while (h < fil->heigth)
+	while (h < fil->h_plat)
 	{
 		w = 0;
-		while (w < fil->width)
+		while (w < fil->w_plat)
 		{
 			ft_printf("%2d ", fil->map[h][w]);
 			w++;
@@ -29,5 +29,6 @@ void	ft_thinker_fil(t_fil *fil)
 	ft_put_players_on_heat_map(fil);
 	while (ft_fill_heat_map(fil, i))
 		i++;
-	print_heat_map(fil);
+	ft_search_solution_fil(fil);
+	//print_heat_map(fil);
 }

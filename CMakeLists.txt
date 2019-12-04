@@ -11,4 +11,4 @@ file(GLOB FILES
 
 set(CMAKE_C_STANDARD 99)
 add_definitions(-Wall -Wextra -Werror)
-add_executable(filler ${FILES} thinker.c head_map.c)
+add_executable(filler ${FILES})

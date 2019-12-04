@@ -12,7 +12,7 @@ void	free_all_fil(t_fil *fil)
 	if (fil->pie)
 		ft_free_char_arr(&fil->pie);
 	if (fil->map)
-		ft_free_int_arr(&fil->map, fil->heigth);
+		ft_free_int_arr(&fil->map, fil->h_plat);
 }
 
 int		main(void)
