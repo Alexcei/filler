@@ -6,7 +6,7 @@
 /*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 22:47:07 by bpole             #+#    #+#             */
-/*   Updated: 2019/12/04 23:03:14 by bpole            ###   ########.fr       */
+/*   Updated: 2019/12/07 15:53:09 by bpole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct	s_fil
 	int			h_fil;
 	int			w_fil;
 	int			flag;
+	int			count_enemy;
+	int			last_count_enemy;
 }				t_fil;
 
 /*

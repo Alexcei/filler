@@ -5,19 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 22:47:49 by bpole             #+#    #+#             */
-/*   Updated: 2019/12/07 15:56:45 by bpole            ###   ########.fr       */
+/*   Created: 2019/12/07 14:45:09 by bpole             #+#    #+#             */
+/*   Updated: 2019/12/07 14:47:29 by bpole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "filler_visual.h"
 
 void			ft_put_players_on_heat_map(t_fil *fil)
 {
 	int			w;
 	int			h;
 
-	fil->last_count_enemy = fil->count_enemy;
 	fil->count_enemy = 0;
 	h = 0;
 	while (h < fil->h_plat)

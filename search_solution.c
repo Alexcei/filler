@@ -6,7 +6,7 @@
 /*   By: bpole <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 23:15:38 by bpole             #+#    #+#             */
-/*   Updated: 2019/12/04 23:18:41 by bpole            ###   ########.fr       */
+/*   Updated: 2019/12/07 16:13:06 by bpole            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ static void		search_position_pie(t_fil *fil)
 				fil->score = score;
 				fil->w_fil = fil->w_pie_tmp;
 				fil->h_fil = fil->h_pie_tmp;
+				if (fil->count_enemy == fil->last_count_enemy)
+					return ;
 			}
 		}
 	}
@@ -103,8 +105,8 @@ void			ft_search_solution_fil(t_fil *fil)
 	int			score;
 
 	score = INT_MAX;
-	fil->h_plat_tmp = 0;
-	while (fil->h_plat_tmp < fil->h_plat)
+	fil->h_plat_tmp = -1;
+	while (++fil->h_plat_tmp < fil->h_plat)
 	{
 		fil->w_plat_tmp = 0;
 		while (fil->w_plat_tmp < fil->w_plat)
@@ -118,10 +120,11 @@ void			ft_search_solution_fil(t_fil *fil)
 					score = fil->score;
 					fil->x_out = fil->w_plat_tmp - fil->w_fil;
 					fil->y_out = fil->h_plat_tmp - fil->h_fil;
+					if (fil->count_enemy == fil->last_count_enemy)
+						return ;
 				}
 			}
 			fil->w_plat_tmp++;
 		}
-		fil->h_plat_tmp++;
 	}
 }
